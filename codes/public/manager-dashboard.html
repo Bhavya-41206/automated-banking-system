@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manager Dashboard</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-page="manager-dashboard">
+  <header class="topbar">
+    <a class="brand" href="/manager-dashboard.html"><span class="brand-mark">B</span><span>Manager Portal</span></a>
+    <nav class="nav-links"><button id="logoutBtn" class="danger" type="button">Logout</button></nav>
+  </header>
+  <main class="page">
+    <h1>Manager Dashboard</h1>
+    <section class="dashboard-grid">
+      <article class="stat"><span>Total Customers</span><strong id="customers">0</strong></article>
+      <article class="stat"><span>Active Customers</span><strong id="activeCustomers">0</strong></article>
+      <article class="stat"><span>Blocked Customers</span><strong id="blockedCustomers">0</strong></article>
+      <article class="stat"><span>Total Balance</span><strong id="totalBalance">0</strong></article>
+    </section>
+
+    <section class="content-grid">
+      <div class="form-panel">
+        <h2>Account Control</h2>
+        <form id="statusForm">
+          <label>Customer Account Number <input name="accountNumber" required></label>
+          <label>Status
+            <select name="status" required>
+              <option value="active">Active</option>
+              <option value="blocked">Blocked</option>
+            </select>
+          </label>
+          <button type="submit">Update Status</button>
+        </form>
+        <p id="managerMessage" class="message"></p>
+      </div>
+      <section class="panel">
+        <h2>Customers</h2>
+        <form id="customerSearchForm">
+          <label>Search <input name="search" placeholder="Name, email, or account number"></label>
+          <button type="submit">Search Customers</button>
+        </form>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Account</th><th>Customer</th><th>Phone</th><th>Type</th><th>Balance</th><th>Status</th></tr></thead>
+            <tbody id="customersTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section class="panel" style="margin-top:16px">
+      <h2>Bank Transactions</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Account</th><th>Type</th><th>Amount</th><th>Balance</th><th>By</th></tr></thead>
+          <tbody id="staffTransactionsTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

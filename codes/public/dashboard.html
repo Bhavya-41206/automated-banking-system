@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-page="customer-dashboard">
+  <header class="topbar">
+    <a class="brand" href="/dashboard.html"><span class="brand-mark">B</span><span>Customer Portal</span></a>
+    <nav class="nav-links">
+      <a class="button secondary" href="/transactions.html">Transactions</a>
+      <a class="button secondary" href="/profile.html">Profile</a>
+      <button id="logoutBtn" class="danger" type="button">Logout</button>
+    </nav>
+  </header>
+  <main class="page">
+    <h1>Welcome, <span id="customerName">Customer</span></h1>
+    <section class="dashboard-grid">
+      <article class="stat"><span>Account Number</span><strong id="accountNumber">-</strong></article>
+      <article class="stat"><span>Account Type</span><strong id="accountType">-</strong></article>
+      <article class="stat"><span>Current Balance</span><strong id="balance">-</strong></article>
+      <article class="stat"><span>Status</span><strong>Active</strong></article>
+    </section>
+
+    <section class="content-grid">
+      <div class="form-panel">
+        <div class="tabs">
+          <button class="tab-button active" data-target="depositForm" type="button">Deposit</button>
+          <button class="tab-button" data-target="withdrawForm" type="button">Withdraw</button>
+          <button class="tab-button" data-target="transferForm" type="button">Transfer</button>
+        </div>
+        <form id="depositForm" class="operation active">
+          <label>Amount <input type="number" name="amount" min="1" step="0.01" required></label>
+          <button type="submit">Deposit Money</button>
+        </form>
+        <form id="withdrawForm" class="operation">
+          <label>Amount <input type="number" name="amount" min="1" step="0.01" required></label>
+          <button type="submit" class="warning">Withdraw Money</button>
+        </form>
+        <form id="transferForm" class="operation">
+          <label>Receiver Account Number <input name="receiverAccount" required></label>
+          <label>Amount <input type="number" name="amount" min="1" step="0.01" required></label>
+          <button type="submit">Transfer Money</button>
+        </form>
+        <p id="operationMessage" class="message"></p>
+      </div>
+
+      <section class="panel">
+        <h2>Recent Transactions</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Type</th><th>Description</th><th>Amount</th><th>Balance</th><th>Status</th></tr></thead>
+            <tbody id="recentTransactions"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Signup</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">B</span><span>Automated Banking System</span></a>
+    <nav class="nav-links"><a class="button secondary" href="/login.html">Login</a></nav>
+  </header>
+  <main class="auth-layout">
+    <section class="auth-card wide">
+      <h1>Open Customer Account</h1>
+      <p class="muted">Customer registration is public for the demo. Employee accounts are private.</p>
+      <form id="signupForm">
+        <div class="form-grid">
+          <label>Full Name <input name="fullName" required></label>
+          <label>Email <input type="email" name="email" required></label>
+          <label>Phone <input name="phone" required></label>
+          <label>Date of Birth <input type="date" name="dateOfBirth" required></label>
+          <label>Account Type
+            <select name="accountType" required>
+              <option value="Savings">Savings</option>
+              <option value="Current">Current</option>
+            </select>
+          </label>
+          <label>Password <input type="password" name="password" minlength="6" required></label>
+        </div>
+        <label>Address <textarea name="address" rows="3" required></textarea></label>
+        <button type="submit">Create Account</button>
+        <p id="signupMessage" class="message"></p>
+      </form>
+    </section>
+  </main>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
